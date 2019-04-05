@@ -1,0 +1,7 @@
+{
+  "memDs": {
+    "name": "memDs",
+    "connector": "memory",
+    "file": "bitconexDb.json"
+  }
+}

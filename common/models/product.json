@@ -1,0 +1,33 @@
+{
+  "name": "Product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "upstream": {
+      "type": "number",
+      "required": true
+    },
+    "downstream": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tech": {
+      "type": "belongsTo",
+      "model": "Tech",
+      "foreignKey": "tech_id"
+    },
+    "device": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "device_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
