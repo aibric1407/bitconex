@@ -6,11 +6,13 @@
     "node": ">=6"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . & kill $(cat .pid)",
     "start": "node .",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "test": "node . & echo $! > .pid & mocha ./test/unit.js"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
@@ -18,6 +20,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mysql": "^5.3.1",
+    "mocha": "^6.0.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },

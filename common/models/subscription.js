@@ -91,6 +91,7 @@ module.exports = function(Subscription) {
   };
 
   Subscription.remoteMethod("activateSubscription", {
+    description: "Create new subscription for user",
     accepts: { arg: "req", type: "object" },
     returns: { arg: "message", type: "object" },
     http: { path: "/activate-subscription", verb: "post" }
@@ -117,6 +118,7 @@ module.exports = function(Subscription) {
       });
   };
   Subscription.remoteMethod("getActiveSubscriptions", {
+    description: "Fetch active subscriptions for all users.",
     returns: { arg: "subscriptions", type: "object" },
     http: { path: "/subscriptions", verb: "get" }
   });
@@ -150,6 +152,7 @@ module.exports = function(Subscription) {
       });
   };
   Subscription.remoteMethod("getActiveUserSubscription", {
+    description: "Fetch active subscription for wanted user id.",
     accepts: { arg: "user_id", type: "string" },
     returns: { arg: "subscription", type: "object" },
     http: { path: "/user-subscription", verb: "get" }
@@ -178,6 +181,7 @@ module.exports = function(Subscription) {
       });
   };
   Subscription.remoteMethod("getSubscriptionsHistory", {
+    description: "Fetch subscriptions history for all users.",
     returns: { arg: "subscriptions", type: "object" },
     http: { path: "/subscriptions-history", verb: "get" }
   });
@@ -212,6 +216,7 @@ module.exports = function(Subscription) {
       });
   };
   Subscription.remoteMethod("getSubscriptionHistoryForUser", {
+    description: "Fetch subscription history for wanted user id.",
     accepts: { arg: "user_id", type: "string" },
     returns: { arg: "subscriptions", type: "object" },
     http: { path: "/user-subscription-history", verb: "get" }

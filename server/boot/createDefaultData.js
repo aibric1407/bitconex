@@ -9,17 +9,17 @@ module.exports = async function(app) {
    * @function createDefaultData
    * @description Creates default data for techs, devices and packages
    */
-  var createDefaultData = async function() {
+  app.createDefaultData = async function() {
     // Create default data for tech if data does not exist
-    var techs = await Tech.find();
-    if (!techs.length) {
+    var all_techs = await Tech.find();
+    if (!all_techs.length) {
       console.log(":: Create default data for techs");
       var techList = app.get("techList");
       var techPromises = [];
-      for (var i in techList) {
+      for (var ti in techList) {
         techPromises.push(
           Tech.create({
-            type: techList[i]
+            type: techList[ti]
           })
         );
       }
@@ -34,15 +34,15 @@ module.exports = async function(app) {
     }
 
     // Create default data for devices if data not created
-    var devices = await Device.find();
-    if (!devices.length) {
+    var all_devices = await Device.find();
+    if (!all_devices.length) {
       console.log(":: Create default data for devices");
       var deviceList = app.get("deviceList");
       var devicePromises = [];
-      for (var i in deviceList) {
+      for (var di in deviceList) {
         devicePromises.push(
           Device.create({
-            type: deviceList[i]
+            type: deviceList[di]
           })
         );
       }
@@ -86,12 +86,13 @@ module.exports = async function(app) {
       Promise.all(packagePromises)
         .then(res => {
           console.log(":: Default data for packages crated successfully ");
+          app.wsrvr = app.start();
         })
         .catch(err => {
           console.log(":: Default data for packages failed with error: ", err);
         });
+    } else {
+      app.start();
     }
   };
-
-  createDefaultData();
 };

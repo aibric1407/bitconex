@@ -38,7 +38,15 @@
   },
   "Product": {
     "dataSource": "memDs",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "allProducts": true
+        }
+      }
+    }
   },
   "Tech": {
     "dataSource": "memDs",
@@ -50,7 +58,19 @@
   },
   "Subscription": {
     "dataSource": "memDs",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "activateSubscription": true,
+          "getActiveSubscriptions": true,
+          "getActiveUserSubscription": true,
+          "getSubscriptionsHistory": true,
+          "getSubscriptionHistoryForUser": true
+        }
+      }
+    }
   },
   "History": {
     "dataSource": "memDs",

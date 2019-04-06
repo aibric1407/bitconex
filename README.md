@@ -26,7 +26,14 @@ $ npm install
 3. Run the app
 
 ```sh
-$ node .
+$ npm start
+```
+
+#### Unit test
+Run the test
+
+```sh
+$ npm test
 ```
 
 #### Description
@@ -79,8 +86,11 @@ $ node .
 | date      | date of subscription |
 
  #### Functions
-
 <dl>
+<dt><a href="#allProducts">allProducts()</a></dt>
+<dd><p>Fetch all products. Include tech and device details
+</p>
+</dd>
 <dt><a href="#beforeRemote - activateSubscription">beforeRemote - activateSubscription()</a></dt>
 <dd><p>Check if request is valid. If subscription already exists push it into History
 and then proceed with activateSubscription method. Otherwise proceed.</p>
@@ -102,6 +112,23 @@ create new subscription for user</p>
 <dd><p>Fetch subscription history for wanted user id. Include tech and device details.</p>
 </dd>
 </dl>
+
+<a name="allProducts"></a>
+
+## allProducts(cb) ⇒
+Fetch all products. Include tech and device details
+
+**Kind**: global function  
+**Returns**: subscriptions list of active subscriptions for all users  
+
+| Param | Description |
+| --- | --- |
+| cb | callback function |
+
+**Example**  
+```js
+GET http://localhost:3000/api/Products/list
+```
 
 <a name="beforeRemote - activateSubscription"></a>
 
