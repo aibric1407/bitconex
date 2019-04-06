@@ -29,6 +29,16 @@ $ npm install
 $ npm start
 ```
 
+**When app is started you will get the message:**
+```
+Web server listening at: http://localhost:3000
+Browse your REST API at http://localhost:3000/explorer
+```
+When opening explorer you will get user interface for communication with api.
+
+![Explorer](explorer.png)
+
+
 #### Unit test
 Run the test
 
